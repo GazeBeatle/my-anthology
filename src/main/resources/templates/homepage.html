@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/general :: baseHeader(~{:: title})">
+    <title>My Anthology</title>
+</head>
+<body>
+<div th:replace="fragments/general :: navbar"></div>
+
+<div class="container">
+    <h1>Welcome to your Grand Anthology!</h1><br>
+    <p>Too many books in your bookcase? Lost count of how many you read, or how many are still waiting to finally be dusted off?</p>
+    <p>Now, with your very own anthology, you can easily keep track of your ever-growing hoard of books!</p>
+    <p>In your personal anthology, you can record which books you own, which are read or unread,</p>
+    <p>and which books you just have to buy even though your bookcase is filled to the brim.</p><br>
+</div>
+
+<div th:replace="fragments/general :: footer"></div>
+<div th:replace="fragments/general :: bottomScripts"></div>
+</body>
+</html>

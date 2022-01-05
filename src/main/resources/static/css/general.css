@@ -1,0 +1,35 @@
+body {
+    background-color: cornsilk;
+    font-family: "Bookman Old Style", sans-serif;
+}
+a:link {
+    color: firebrick;
+}
+a:visited {
+    color: brown;
+}
+a:hover {
+    color: maroon;
+}
+ul {
+    background-color: lemonchiffon;
+    padding: 2px;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+td, th {
+    border: 1px solid cornsilk;
+    text-align: left;
+    padding: 8px;
+}
+th {
+    background-color: bisque;
+}
+td {
+    background-color: lemonchiffon;
+}
+footer {
+    padding: 8px;
+}
