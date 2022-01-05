@@ -52,7 +52,9 @@ public class AnthologySecurityConfiguration extends WebSecurityConfigurerAdapter
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/css/**", "/webjars/**", "/", "/homepage").permitAll()
+                .antMatchers("/css/**", "/webjars/**").permitAll()
+                .antMatchers("/", "/homepage").permitAll()
+                .antMatchers("/users/new").permitAll()
                 .anyRequest().authenticated().and()
                 .formLogin()
                 .and().logout().logoutSuccessUrl("/homepage");
