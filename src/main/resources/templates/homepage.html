@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="fragments/general :: baseHeader(~{:: title}, ~{:: link})">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/cover.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/homepage.css}">
     <title>My Anthology</title>
 </head>
 <body class="d-flex h-100 text-center text-white bg-dark">
 
 <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    <header class="mb-auto">
-        <div>
-            <h3 class="float-md-start mb-0">My Anthology</h3>
-            <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link active" aria-current="page" th:href="@{/homepage}">Home</a>
-                <a class="nav-link" th:href="@{/users/new}">Create User</a>
-            </nav>
-        </div>
-    </header>
+    <header th:replace="fragments/general :: navbar"></header>
 
     <main class="px-3">
         <h1>Welcome to your personal Anthology!</h1><br>
@@ -32,10 +24,7 @@
         </p>
     </main>
 
-    <footer class="mt-auto text-white-50">
-        <p>Annemiek Blaauwgeers &copy; 2022</p>
-    </footer>
-
+    <footer th:replace="fragments/general :: footer"></footer>
     <div th:replace="fragments/general :: bottomScripts"></div>
 </div>
 

@@ -8,17 +8,21 @@
     <title th:replace="${title}">TITLE</title>
 </head>
 <body>
-<div th:fragment="navbar">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link" th:href="@{/homepage}">Home</a>
-        </li>
-    </ul> <br>
-</div>
 
-<div th:fragment="footer"> <br>
-    <footer class="mt-auto text-center text-white-50"><p>Annemiek Blaauwgeers &copy; 2022</p></footer>
-</div>
+<header th:fragment="navbar" class="mb-auto">
+    <div>
+        <h3 class="float-md-start mb-0">My Anthology</h3>
+        <nav class="nav nav-masthead justify-content-center float-md-end">
+            <a class="nav-link active" aria-current="page" th:href="@{/homepage}">Home</a>
+            <a class="nav-link" th:href="@{/users/new}">Create User</a>
+        </nav>
+    </div>
+</header>
+
+<footer th:fragment="footer" class="mt-auto text-white-50">
+    <p>Annemiek Blaauwgeers &copy; 2022</p>
+</footer>
+
 <div th:fragment="bottomScripts">
     <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
     <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>

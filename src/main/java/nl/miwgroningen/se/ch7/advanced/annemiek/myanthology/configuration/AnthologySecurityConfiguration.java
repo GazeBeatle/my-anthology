@@ -53,10 +53,9 @@ public class AnthologySecurityConfiguration extends WebSecurityConfigurerAdapter
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/css/**", "/webjars/**").permitAll()
-                .antMatchers("/", "/homepage").permitAll()
-                .antMatchers("/users/new").permitAll()
+                .antMatchers("/", "/home").permitAll()
                 .anyRequest().authenticated().and()
                 .formLogin()
-                .and().logout().logoutSuccessUrl("/homepage");
+                .and().logout().logoutSuccessUrl("/home");
     }
 }
