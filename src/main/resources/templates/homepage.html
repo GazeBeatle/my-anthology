@@ -1,26 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="fragments/general :: baseHeader(~{:: title})">
+<html lang="en" class="h-100" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/general :: baseHeader(~{:: title}, ~{:: link})">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/cover.css}">
     <title>My Anthology</title>
 </head>
-<body>
-<div th:replace="fragments/general :: navbar"></div>
+<body class="d-flex h-100 text-center text-white bg-dark">
 
-<div class="container">
-    <h1>Welcome to your personal Anthology!</h1><br>
-    <p>Too many books in your bookcase? Lost count of how many you read, or how many are still waiting to finally be dusted off?</p>
-    <p>Now, with your very own anthology, you can easily keep track of your ever-growing hoard of books!</p><br>
-    <p>In your personal anthology, you can record which books you own, which are read or unread,</p>
-    <p>and which books you just have to buy even though your bookcase is filled to the brim.</p><br>
-    <p><br></p>
-    <p>If you already own an anthology, please click below to log in.</p>
-    <a th:href="@{/login}">Log in<br></a>
-    <p><br></p>
-    <p>If this is your first visit, please click below to register and start creating your own anthology.</p>
-    <a th:href="@{/users/new}">Sign up<br></a>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+        <div>
+            <h3 class="float-md-start mb-0">My Anthology</h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link active" aria-current="page" th:href="@{/homepage}">Home</a>
+                <a class="nav-link" th:href="@{/users/new}">Create User</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="px-3">
+        <h1>Welcome to your personal Anthology!</h1><br>
+        <p class="lead">
+            Too many books in your bookcase? Lost count of how many you read,
+            or how many are still waiting to finally be dusted off?<br>
+            Now, with your very own anthology, you can easily keep track of your ever-growing hoard of books!<br>
+            <br>
+            In your personal anthology, you can record which books you own, which are read or unread,
+            and which books you just have to buy even though your bookcase is filled to the brim.
+        </p><br>
+        <p class="lead">
+            <a th:href="@{/login}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Log in</a>
+        </p>
+    </main>
+
+    <footer class="mt-auto text-white-50">
+        <p>Annemiek Blaauwgeers &copy; 2022</p>
+    </footer>
+
+    <div th:replace="fragments/general :: bottomScripts"></div>
 </div>
 
-<div th:replace="fragments/general :: footer"></div>
-<div th:replace="fragments/general :: bottomScripts"></div>
 </body>
 </html>
