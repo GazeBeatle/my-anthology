@@ -3,11 +3,15 @@
  */
 
 
-/* Custom default button */
-.btn-secondary,
-.btn-secondary:hover,
-.btn-secondary:focus {
-    color: #333;
+/* Custom default buttons */
+
+.btn-primary {
+    color: white;
+    text-shadow: none; /* Prevent inheritance from `body` */
+}
+
+.btn-secondary {
+    color: white;
     text-shadow: none; /* Prevent inheritance from `body` */
 }
 

@@ -24,6 +24,52 @@
         <p class="lead">
             Here you can find an overview of your recorded books and your wishlist.
         </p><br>
+        <div class="mb-5">
+            <a th:href="@{/books/new}" class="btn btn-lg btn-secondary">Add books</a>
+        </div>
+
+        <hr class="border-bottom">
+
+        <div class="row g-5">
+            <div class="col-md-6">
+                <h2>Recorded Books</h2>
+                <table class="table table-dark table-borderless table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Author</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Read</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="book : ${allBooks}">
+                        <th scope="row" th:text="${book.author}"></th>
+                        <th scope="row" th:text="${book.title}"></th>
+                        <td th:text="${book.isRead()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-6">
+                <h2>Wishlist</h2>
+                <table class="table table-dark table-borderless table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">Author</th>
+                        <th scope="col">Title</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="book : ${allBooks}">
+                        <th scope="row" th:text="${book.author}"></th>
+                        <th scope="row" th:text="${book.title}"></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
     </main>
 
     <footer th:replace="fragments/general :: footer"></footer>
