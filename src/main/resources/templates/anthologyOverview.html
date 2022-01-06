@@ -2,7 +2,7 @@
 <html lang="en" class="h-100" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="fragments/general :: baseHeader(~{:: title}, ~{:: link})">
     <link rel="stylesheet" type="text/css" th:href="@{/css/general.css}">
-    <title>My Anthology</title>
+    <title>Overview</title>
 </head>
 <body class="d-flex h-100 text-center text-white bg-dark">
 
@@ -11,8 +11,8 @@
         <div>
             <h3 class="float-md-start mb-0">My Anthology</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
-                <a class="nav-link active" aria-current="page" th:href="@{/home}">Home</a>
-                <a class="nav-link" th:href="@{/overview}">Overview</a>
+                <a class="nav-link" th:href="@{/home}">Home</a>
+                <a class="nav-link active" aria-current="page" th:href="@{/overview}">Overview</a>
 
                 <a class="nav-link" th:href="@{/users/new}">New Account</a>
             </nav>
@@ -20,18 +20,10 @@
     </header>
 
     <main class="px-3">
-        <h1>Welcome to My Anthology.</h1><br>
+        <h1>This is your anthology.</h1><br>
         <p class="lead">
-            Too many books in your bookcase? Lost count of how many you read,
-            or how many are still waiting to finally be dusted off?<br>
-            Now, with your very own anthology, you can easily keep track of your ever-growing hoard of books!<br>
-            <br>
-            In your personal anthology, you can record which books you own, which are read or unread,
-            and which books you just have to buy even though your bookcase is filled to the brim.
+            Here you can find an overview of your recorded books and your wishlist.
         </p><br>
-        <p class="lead">
-            <a th:href="@{/login}" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Log in</a>
-        </p>
     </main>
 
     <footer th:replace="fragments/general :: footer"></footer>

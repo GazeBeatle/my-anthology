@@ -6,19 +6,21 @@
 </head>
 <body class="d-flex h-100 text-center text-white bg-dark">
 
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
     <header class="mb-5">
         <div>
             <h3 class="float-md-start mb-0">My Anthology</h3>
             <nav class="nav nav-masthead justify-content-center float-md-end">
                 <a class="nav-link" th:href="@{/home}">Home</a>
-                <a class="nav-link active" aria-current="page" th:href="@{/users/new}">Users</a>
+                <a class="nav-link" th:href="@{/overview}">Overview</a>
+
+                <a class="nav-link active" aria-current="page" th:href="@{/users/new}">New Account</a>
             </nav>
         </div>
     </header>
 
     <main class="px-3">
-        <h1>Create a new account</h1><br>
+        <h1>Create a new account.</h1><br>
         <form class="lead" th:action="@{/users/new}" method="post" th:object="${newUser}">
             <div>
                 <label for="username">Username:</label>
