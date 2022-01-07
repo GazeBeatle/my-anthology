@@ -13,6 +13,7 @@
             <nav class="nav nav-masthead justify-content-center float-md-end">
                 <a class="nav-link" th:href="@{/home}">Home</a>
                 <a class="nav-link active" aria-current="page" th:href="@{/overview}">Overview</a>
+                <a class="nav-link" th:href="@{/wishlist}">Wishlist</a>
 
                 <a class="nav-link" th:href="@{/users/new}">New Account</a>
             </nav>
@@ -22,10 +23,11 @@
     <main class="px-3">
         <h1>This is your anthology.</h1><br>
         <p class="lead">
-            Here you can find an overview of your recorded books and your wishlist.
+            Here you can find an overview of your recorded books.
         </p><br>
-        <div class="mb-5">
-            <a th:href="@{/books/new}" class="btn btn-lg btn-secondary">Add books</a>
+        <div class="col-md-6 mx-auto">
+            <a th:href="@{/books/new}" class="btn btn-lg btn-secondary">Add Books</a>
+            <a th:href="@{/wishlist}" class="btn btn-lg btn-secondary">View Wishlist</a>
         </div>
 
         <hr class="border-bottom">
@@ -33,43 +35,27 @@
         <div class="row g-5">
             <div class="col-md-6">
                 <h2>Recorded Books</h2>
-                <table class="table table-dark table-borderless table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col">Author</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Read</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="book : ${allBooks}">
-                        <th scope="row" th:text="${book.author}"></th>
-                        <th scope="row" th:text="${book.title}"></th>
-                        <td th:text="${book.isRead()}"></td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="table-wrap">
+                    <table class="table table-sm table-dark table-borderless table-hover">
+                        <thead>
+                        <tr>
+                            <th scope="col">Author</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Read</th>
+                        </tr>
+                        </thead>
+                        <tbody class="text-white-50">
+                        <tr th:each="book : ${allBooks}">
+                            <th scope="row" th:text="${book.author}"></th>
+                            <th scope="row" th:text="${book.title}"></th>
+                            <td th:text="${book.isRead()}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <div class="col-md-6">
-                <h2>Wishlist</h2>
-                <table class="table table-dark table-borderless table-hover">
-                    <thead>
-                    <tr>
-                        <th scope="col">Author</th>
-                        <th scope="col">Title</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="book : ${allBooks}">
-                        <th scope="row" th:text="${book.author}"></th>
-                        <th scope="row" th:text="${book.title}"></th>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
-
     </main>
 
     <footer th:replace="fragments/general :: footer"></footer>

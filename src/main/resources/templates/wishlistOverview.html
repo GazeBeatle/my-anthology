@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" class="h-100" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/general :: baseHeader(~{:: title}, ~{:: link})">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/general.css}">
+    <title>Wishlist</title>
+</head>
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+<div class="container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-5">
+        <div>
+            <h3 class="float-md-start mb-0">My Anthology</h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link" th:href="@{/home}">Home</a>
+                <a class="nav-link" th:href="@{/overview}">Overview</a>
+                <a class="nav-link active" aria-current="page" th:href="@{/wishlist}">Wishlist</a>
+
+                <a class="nav-link" th:href="@{/users/new}">New Account</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="px-3">
+        <h1>This is your Wishlist.</h1><br>
+        <p class="lead">
+            Here you can find an overview of books that you just have to buy, even though your bookcase can't fit any more books.
+        </p><br>
+
+        <div class="col-md-6">
+            <h2>Wishlist</h2>
+            <div class="table-wrap">
+                <table class="table table-sm table-dark table-borderless table-hover">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Book</th>
+                    </tr>
+                    </thead>
+                    <tbody class="text-white-50">
+                    <tr th:each="wishlist : ${allWishlists}">
+                        <th scope="row" th:text="${wishlist.wishID}"></th>
+                        <th scope="row" th:text="${wishlist.bookDisplayString}"></th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer th:replace="fragments/general :: footer"></footer>
+    <div th:replace="fragments/general :: bottomScripts"></div>
+</div>
+
+</body>
+</html>

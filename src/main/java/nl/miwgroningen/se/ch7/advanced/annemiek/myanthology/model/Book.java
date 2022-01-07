@@ -3,10 +3,9 @@ package nl.miwgroningen.se.ch7.advanced.annemiek.myanthology.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Annemiek Blaauwgeers <a.blaauwgeers@st.hanze.nl>
@@ -28,8 +27,8 @@ public class Book {
 
     protected boolean isRead = true;
 
-    @ManyToOne
-    private Wishlist wishlist;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Set<Wishlist> wishlists = new HashSet<>();
 
     public String getDisplayName() {
         return String.format("%s - %s", author, title);

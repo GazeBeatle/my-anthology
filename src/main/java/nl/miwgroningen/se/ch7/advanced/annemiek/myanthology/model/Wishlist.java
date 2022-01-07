@@ -4,7 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Annemiek Blaauwgeers <a.blaauwgeers@st.hanze.nl>
@@ -20,13 +21,13 @@ public class Wishlist {
     @GeneratedValue
     private Long wishID;
 
-    @OneToMany(mappedBy = "wishlist")
-    private List<Book> books;
+    @ManyToMany(mappedBy = "wishlists")
+    private Set<Book> wantedBooks = new HashSet<>();
 
     public String getBookDisplayString() {
         StringBuilder bookString = new StringBuilder();
 
-        for (Book book : books) {
+        for (Book book : wantedBooks) {
             bookString.append(" ").append(book.getDisplayName());
         }
 
