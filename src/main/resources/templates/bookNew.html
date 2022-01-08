@@ -21,11 +21,11 @@
                 <input type="text" class="form-control" id="title" th:field="*{title}">
             </div>
             <div class="mb-3 form-check">
-                <input type="radio" class="form-check-input" id="readYes">
+                <input type="radio" class="form-check-input" id="readYes" th:field="*{read}" th:value=1>
                 <label for="readYes" class="form-check-label">Read</label>
             </div>
             <div class="mb-3 form-check">
-                <input type="radio" class="form-check-input" id="readNo">
+                <input type="radio" class="form-check-input" id="readNo" th:field="*{read}" th:value=0>
                 <label for="readNo" class="form-check-label">Unread</label>
             </div>
             <div class="text-center">

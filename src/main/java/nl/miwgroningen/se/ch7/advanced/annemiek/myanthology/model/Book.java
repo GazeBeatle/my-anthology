@@ -25,7 +25,7 @@ public class Book {
 
     protected String author;
 
-    protected boolean isRead = true;
+    protected boolean isRead;
 
     @ManyToMany(cascade = CascadeType.ALL)
     private Set<Wishlist> wishlists = new HashSet<>();
