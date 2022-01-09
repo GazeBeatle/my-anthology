@@ -39,7 +39,7 @@ public class WishlistController {
     @GetMapping("/wishlist/new")
     protected String showNewWishlistForm(Model model) {
         model.addAttribute("wishlist", new Wishlist());
-        model.addAttribute("allBooks", bookRepository.findAll());
+        model.addAttribute("allUnreadBooks", bookRepository.findByisRead(false));
         return "wishlistNew";
     }
 
@@ -48,17 +48,17 @@ public class WishlistController {
         if (!result.hasErrors()) {
             wishlistRepository.save(wishlist);
         }
-        return "redirect:/wishlistOverview";
+        return "redirect:/wishlist";
     }
 
     @GetMapping("/wishlist/update/{wishlistNumber}")
     protected String showUpdateWishlistForm(@PathVariable("wishlistNumber") Long wishlistNumber, Model model) {
         Optional<Wishlist> wishlist = wishlistRepository.findByWishID(wishlistNumber);
         if (wishlist.isEmpty()) {
-            return "redirect:/wishlistOverview";
+            return "redirect:/wishlist";
         }
         model.addAttribute("wishlist", wishlist.get());
-        model.addAttribute("allBooks", bookRepository.findAll());
+        model.addAttribute("allBooks", bookRepository.findByisRead(false));
         return "wishlistUpdate";
     }
 }

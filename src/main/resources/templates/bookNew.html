@@ -11,7 +11,10 @@
 
     <main class="px-3">
         <h1 class="text-center">Record a new book</h1><br>
+        <hr class="border-bottom">
+
         <form class="lead" th:action="@{/books/new}" method="post" th:object="${book}">
+            <input type="hidden" th:field="*{bookID}" />
             <div class="mb-3">
                 <label for="author" class="form-label">Author</label>
                 <input type="text" class="form-control" id="author" th:field="*{author}">

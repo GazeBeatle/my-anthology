@@ -72,3 +72,21 @@ body {
     max-height: 15em;
     overflow-y: auto;
 }
+
+
+/*
+ * Form Select
+ */
+
+.form-select {
+    overflow-x: auto;
+    overflow-y: auto;
+    background-color: transparent;
+    border-color: transparent;
+    height: 20em;
+    font-size: 1.1rem;
+}
+
+option {
+    padding: 8px 2px 1px;
+}
