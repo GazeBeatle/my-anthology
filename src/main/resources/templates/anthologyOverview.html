@@ -13,7 +13,7 @@
             <nav class="nav nav-masthead justify-content-center float-md-end">
                 <a class="nav-link" th:href="@{/home}">Home</a>
                 <a class="nav-link active" aria-current="page" th:href="@{/overview}">Overview</a>
-                <a class="nav-link" th:href="@{/wishlist}">Wishlist</a>
+                <a class="nav-link" th:href="@{/list}">Lists</a>
 
                 <a class="nav-link" th:href="@{/users/new}">New Account</a>
             </nav>
@@ -27,7 +27,7 @@
         </p><br>
         <div class="col-md-6 mx-auto">
             <a th:href="@{/books/new}" class="btn btn-lg btn-secondary">Add Books</a>
-            <a th:href="@{/wishlist}" class="btn btn-lg btn-secondary">View Wishlist</a>
+            <a th:href="@{/lists}" class="btn btn-lg btn-secondary">View Lists</a>
         </div>
 
         <hr class="border-bottom">
@@ -41,12 +41,14 @@
                         <tr>
                             <th scope="col">Author</th>
                             <th scope="col">Title</th>
+                            <th scope="col"> </th>
                         </tr>
                         </thead>
                         <tbody class="text-white-50">
                         <tr th:each="readbook : ${allReadBooks}">
                             <th scope="row" th:text="${readbook.author}"></th>
                             <th scope="row" th:text="${readbook.title}"></th>
+                            <th scope="row"><a th:href="@{/books/update/{bookTitle}(bookTitle=${readbook.title})}">Edit</a></th>
                         </tr>
                         </tbody>
                     </table>
@@ -61,12 +63,14 @@
                         <tr>
                             <th scope="col">Author</th>
                             <th scope="col">Title</th>
+                            <th scope="col"> </th>
                         </tr>
                         </thead>
                         <tbody class="text-white-50">
                         <tr th:each="unreadbook : ${allUnreadBooks}">
                             <th scope="row" th:text="${unreadbook.author}"></th>
                             <th scope="row" th:text="${unreadbook.title}"></th>
+                            <th scope="row"><a th:href="@{/books/update/{bookTitle}(bookTitle=${unreadbook.title})}">Edit</a></th>
                         </tr>
                         </tbody>
                     </table>

@@ -22,7 +22,6 @@ public class OverviewController {
 
     @GetMapping("/overview")
     protected String showAnthologyOverview(Model model) {
-//        model.addAttribute("allBooks", bookRepository.findAll());
         model.addAttribute("allReadBooks", bookRepository.findByisRead(true));
         model.addAttribute("allUnreadBooks", bookRepository.findByisRead(false));
         return "anthologyOverview";

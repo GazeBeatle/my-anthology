@@ -28,7 +28,7 @@ public class Book {
     protected boolean isRead;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    private Set<Wishlist> wishlists = new HashSet<>();
+    private Set<List> lists = new HashSet<>();
 
     public String getDisplayName() {
         return String.format("%s - %s", author, title);

@@ -10,24 +10,26 @@ import java.util.Set;
 /**
  * @author Annemiek Blaauwgeers <a.blaauwgeers@st.hanze.nl>
  * <p>
- * This is a wishlist with books that are yet to be bought.
+ * This is a list to which books can be added.
  */
 
 @Entity
 @Getter @Setter
-public class Wishlist {
+public class List {
 
     @Id
     @GeneratedValue
-    private Long wishID;
+    private Long listID;
 
-    @ManyToMany(mappedBy = "wishlists")
-    private Set<Book> wantedBooks = new HashSet<>();
+    private String listName;
+
+    @ManyToMany(mappedBy = "lists")
+    private Set<Book> listedBooks = new HashSet<>();
 
     public String getBookDisplayString() {
         StringBuilder bookString = new StringBuilder();
 
-        for (Book book : wantedBooks) {
+        for (Book book : listedBooks) {
             bookString.append(" ").append(book.getDisplayName());
         }
 
